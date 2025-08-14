@@ -4,7 +4,7 @@ import streamlit as st
 # MBTI별 대표 연예인 데이터 (3명씩)
 mbti_celebrities = {
     "INTJ": [
-        {"name": "아이유", "desc": "섬세하고 창의적인 아티스트", "image": "https://i.imgur.com/6Xq0xD1.jpg"},
+        {"name": "아이유", "desc": "섬세하고 창의적인 아티스트", "image": "https://www.google.com/imgres?q=%EC%95%84%EC%9D%B4%EC%9C%A0&imgurl=https%3A%2F%2Fi.namu.wiki%2Fi%2FR0AhIJhNi8fkU2Al72pglkrT8QenAaCJd1as-d_iY6MC8nub1iI5VzIqzJlLa-1uzZm--TkB-KHFiT-P-t7bEg.webp&imgrefurl=https%3A%2F%2Fnamu.wiki%2Fw%2F%25EC%2595%2584%25EC%259D%25B4%25EC%259C%25A0&docid=nzo3Fzovz85czM&tbnid=JAo-iKIHAIC5BM&vet=12ahUKEwiLl7vDnYmPAxVcm1YBHUDlHkIQM3oECBIQAA..i&w=1000&h=1500&hcb=2&itg=1&ved=2ahUKEwiLl7vDnYmPAxVcm1YBHUDlHkIQM3oECBIQAA"},
         {"name": "박서준", "desc": "전략적이고 목표 지향적인 배우", "image": "https://i.imgur.com/p5tQqXo.jpg"},
         {"name": "정은지", "desc": "분석적이면서 감성적인 뮤지션", "image": "https://i.imgur.com/vmO9rS2.jpg"}
     ],
