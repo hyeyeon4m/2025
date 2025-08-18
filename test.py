@@ -1,10 +1,6 @@
 # food_recommender_final.py
 import streamlit as st
 import random
-
-if st.button("추천 받기 🎲"):
-    st.balloons()  # 풍선 터지는 효과
-    st.success("👉 오늘의 추천 음식은 ...")
     
 # 음식 데이터 (모든 조건 커버 + mood 추가)
 foods = [
@@ -43,6 +39,26 @@ foods = [
 
 st.set_page_config(page_title="음식 추천기", page_icon="🍜", layout="centered")
 
+st.markdown(
+    """
+    <style>
+    div.stButton > button:first-child {
+        background-color: #FF6347;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 10px;
+        height: 3em;
+        width: 100%;
+        transition: 0.3s;
+    }
+    div.stButton > button:first-child:hover {
+        background-color: #e5533d;
+        transform: scale(1.05);}
+    </style>
+    """,
+    unsafe_allow_html=True)
+
 st.title("🍜 오늘 뭐 먹지? 맞춤 음식 추천기")
 
 # 질문 1: 매운 음식?
@@ -57,24 +73,23 @@ mood_choice = st.radio("오늘 기분은 어떤가요?", ["상관없음", "가�
 # 질문 4: 음식 종류
 category_choice = st.selectbox("어떤 종류가 먹고 싶으신가요?", ["상관없음", "한식", "중식", "일식", "양식", "분식"])
 
+# 추천 버튼 + 애니메이션
 if st.button("추천 받기 🎲"):
-    # 조건 필터링
     candidates = foods
 
     if spicy_choice != "상관없음":
         candidates = [f for f in candidates if f["spicy"] == (spicy_choice == "매운거 좋아요 🌶️")]
-
     if soup_choice != "상관없음":
         candidates = [f for f in candidates if f["soup"] == (soup_choice == "국물 있는 게 좋아요 🍲")]
-
     if category_choice != "상관없음":
         candidates = [f for f in candidates if f["category"] == category_choice]
-
     if mood_choice != "상관없음":
         candidates = [f for f in candidates if f["mood"] == mood_choice]
 
     if candidates:
         choice = random.choice(candidates)
         st.success(f"👉 오늘의 추천 음식은 **{choice['name']}** 입니다! 😋")
+        st.balloons()  # 🎈 풍선 애니메이션 효과
     else:
         st.error("조건에 맞는 음식이 없어요 😢 다시 선택해보세요!")
+        st.snow()  # ❄️ 실패 시 눈 내리는 효과
