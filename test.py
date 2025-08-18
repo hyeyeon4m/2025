@@ -62,24 +62,24 @@ st.title("🍜 오늘 뭐 먹지? 맞춤 음식 추천기")
 # ✨ 사이드바 (질문들)
 st.sidebar.header("⚡ 음식 선택 옵션")
 
-spicy_choice = st.sidebar.radio(
+spicy_choice == st.sidebar.radio(
     "매운 음식이 땡기나요?",
     ["상관없음", "매운거 좋아요 🌶️", "순한게 좋아요 😌"],
     index=None)
 
-soup_choice = st.sidebar.radio(
+soup_choice == st.sidebar.radio(
     "국물이 필요하신가요?",
     ["상관없음", "국물 있는 게 좋아요 🍲", "국물 없는 게 좋아요 🍙"],
     index=None)
 
-category_choice = st.sidebar.selectbox(
-    "어떤 종류가 먹고 싶으신가요?",
-    ["상관없음", "한식", "일식"],
-    index=None)
-
-mood_choice = st.sidebar.radio(
+mood_choice == st.sidebar.radio(
     "오늘 기분은 어떤가요?",
     ["상관없음", "가볍게", "든든하게", "특별하게"],
+    index=None)
+
+category_choice == st.sidebar.selectbox(
+    "어떤 종류가 먹고 싶으신가요?",
+    ["상관없음", "한식", "일식"],
     index=None)
 
 # 추천 버튼 + 애니메이션
