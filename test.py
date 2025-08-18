@@ -2,6 +2,10 @@
 import streamlit as st
 import random
 
+if st.button("추천 받기 🎲"):
+    st.balloons()  # 풍선 터지는 효과
+    st.success("👉 오늘의 추천 음식은 ...")
+    
 # 음식 데이터 (모든 조건 커버 + mood 추가)
 foods = [
     # --- 한식 ---
