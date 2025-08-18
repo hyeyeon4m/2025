@@ -34,8 +34,7 @@ foods = [
     {"name": "떡볶이", "category": "분식", "spicy": True, "soup": True, "mood": "가볍게"},
     {"name": "순대국밥", "category": "분식", "spicy": False, "soup": True, "mood": "든든하게"},
     {"name": "김밥", "category": "분식", "spicy": False, "soup": False, "mood": "가볍게"},
-    {"name": "치즈라볶이", "category": "분식", "spicy": True, "soup": True, "mood": "특별하게"},
-]
+    {"name": "치즈라볶이", "category": "분식", "spicy": True, "soup": True, "mood": "특별하게"}, ]
 
 st.set_page_config(page_title="음식 추천기", page_icon="🍜", layout="centered")
 
@@ -50,8 +49,7 @@ st.markdown(
         border-radius: 10px;
         height: 3em;
         width: 100%;
-        transition: 0.3s;
-    }
+        transition: 0.3s; }
     div.stButton > button:first-child:hover {
         background-color: #e5533d;
         transform: scale(1.05);}
@@ -78,13 +76,13 @@ if st.button("추천 받기 🎲"):
     candidates = foods
 
     if spicy_choice != "상관없음":
-        candidates = [f for f in candidates if f["spicy"] == (spicy_choice == "매운거 좋아요 🌶️")]
+        candidates = [f for f in candidates if f["spicy"] == (spicy_choice == "매운거 좋아요 🌶️")], index=None
     if soup_choice != "상관없음":
-        candidates = [f for f in candidates if f["soup"] == (soup_choice == "국물 있는 게 좋아요 🍲")]
+        candidates = [f for f in candidates if f["soup"] == (soup_choice == "국물 있는 게 좋아요 🍲")], index=None
     if category_choice != "상관없음":
-        candidates = [f for f in candidates if f["category"] == category_choice]
+        candidates = [f for f in candidates if f["category"] == category_choice], index=None
     if mood_choice != "상관없음":
-        candidates = [f for f in candidates if f["mood"] == mood_choice]
+        candidates = [f for f in candidates if f["mood"] == mood_choice], index=None
 
     if candidates:
         choice = random.choice(candidates)
