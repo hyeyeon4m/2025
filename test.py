@@ -1,29 +1,69 @@
-# food_recommender.py
+# food_recommender_advanced.py
 import streamlit as st
 import random
 
-# 음식 리스트 (원하는 만큼 추가 가능)
-foods = {
-    "한식": ["김치찌개", "불고기", "비빔밥", "삼겹살", "된장찌개", "치킨"],
-    "중식": ["짜장면", "짬뽕", "탕수육", "마라탕", "꿔바로우"],
-    "일식": ["초밥", "라멘", "돈까스", "우동", "덮밥"],
-    "양식": ["피자", "파스타", "스테이크", "햄버거", "리조또"],
-    "분식": ["떡볶이", "순대", "김밥", "라볶이", "오뎅"]
-}
+# 음식 데이터 (카테고리 + 속성)
+foods = [
+    {"name": "김치찌개", "category": "한식", "spicy": True, "soup": True},
+    {"name": "불고기", "category": "한식", "spicy": False, "soup": False},
+    {"name": "비빔밥", "category": "한식", "spicy": True, "soup": False},
+    {"name": "삼겹살", "category": "한식", "spicy": False, "soup": False},
+    {"name": "된장찌개", "category": "한식", "spicy": False, "soup": True},
+    {"name": "치킨", "category": "한식", "spicy": False, "soup": False},
 
-st.set_page_config(page_title="랜덤 음식 추천기", page_icon="🍽️", layout="centered")
+    {"name": "짜장면", "category": "중식", "spicy": False, "soup": False},
+    {"name": "짬뽕", "category": "중식", "spicy": True, "soup": True},
+    {"name": "탕수육", "category": "중식", "spicy": False, "soup": False},
+    {"name": "마라탕", "category": "중식", "spicy": True, "soup": True},
+    {"name": "꿔바로우", "category": "중식", "spicy": False, "soup": False},
 
-st.title("🍽️ 오늘 뭐 먹지? 랜덤 음식 추천기")
+    {"name": "초밥", "category": "일식", "spicy": False, "soup": False},
+    {"name": "라멘", "category": "일식", "spicy": False, "soup": True},
+    {"name": "돈까스", "category": "일식", "spicy": False, "soup": False},
+    {"name": "우동", "category": "일식", "spicy": False, "soup": True},
+    {"name": "덮밥", "category": "일식", "spicy": False, "soup": False},
 
-# 음식 카테고리 선택
-category = st.selectbox("먹고 싶은 음식 종류를 선택하세요!", ["전체"] + list(foods.keys()))
+    {"name": "피자", "category": "양식", "spicy": False, "soup": False},
+    {"name": "파스타", "category": "양식", "spicy": False, "soup": False},
+    {"name": "스테이크", "category": "양식", "spicy": False, "soup": False},
+    {"name": "햄버거", "category": "양식", "spicy": False, "soup": False},
+    {"name": "리조또", "category": "양식", "spicy": False, "soup": False},
+
+    {"name": "떡볶이", "category": "분식", "spicy": True, "soup": True},
+    {"name": "순대", "category": "분식", "spicy": False, "soup": False},
+    {"name": "김밥", "category": "분식", "spicy": False, "soup": False},
+    {"name": "라볶이", "category": "분식", "spicy": True, "soup": True},
+    {"name": "오뎅", "category": "분식", "spicy": False, "soup": True},
+]
+
+st.set_page_config(page_title="음식 추천기", page_icon="🍜", layout="centered")
+
+st.title("🍜 오늘 뭐 먹지? 맞춤 음식 추천기")
+
+# 질문 1: 매운 음식?
+spicy_choice = st.radio("매운 음식이 땡기나요?", ["상관없음", "매운거 좋아요 🌶️", "순한게 좋아요 😌"])
+
+# 질문 2: 국물 있는 음식?
+soup_choice = st.radio("국물이 필요하신가요?", ["상관없음", "국물 있는 게 좋아요 🍲", "국물 없는 게 좋아요 🍙"])
+
+# 질문 3: 음식 종류
+category_choice = st.selectbox("어떤 종류가 먹고 싶으신가요?", ["상관없음", "한식", "중식", "일식", "양식", "분식"])
 
 if st.button("추천 받기 🎲"):
-    if category == "전체":
-        # 모든 카테고리에서 랜덤
-        all_foods = sum(foods.values(), [])
-        choice = random.choice(all_foods)
+    # 조건 필터링
+    candidates = foods
+
+    if spicy_choice != "상관없음":
+        candidates = [f for f in candidates if f["spicy"] == (spicy_choice == "매운거 좋아요 🌶️")]
+
+    if soup_choice != "상관없음":
+        candidates = [f for f in candidates if f["soup"] == (soup_choice == "국물 있는 게 좋아요 🍲")]
+
+    if category_choice != "상관없음":
+        candidates = [f for f in candidates if f["category"] == category_choice]
+
+    if candidates:
+        choice = random.choice(candidates)
+        st.success(f"👉 오늘의 추천 음식은 **{choice['name']}** 입니다! 😋")
     else:
-        choice = random.choice(foods[category])
-    
-    st.success(f"👉 오늘의 추천 음식은 **{choice}** 입니다! 😋")
+        st.error("조건에 맞는 음식이 없어요 😢 다시 선택해보세요!")
