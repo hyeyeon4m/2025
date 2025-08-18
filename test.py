@@ -8,7 +8,8 @@ foods = [
     {"name": "김치찌개", "category": "한식", "spicy": True, "soup": True, "mood": "든든하게"},
     {"name": "불고기", "category": "한식", "spicy": False, "soup": False, "mood": "특별하게"},
     {"name": "비빔밥", "category": "한식", "spicy": True, "soup": False, "mood": "가볍게"},
-    {"name": "갈비탕", "category": "한식", "spicy": False, "soup": True, "mood": "든든하게"},
+    {"name": "갈비탕", "category": "한식", "spicy": False, "soup": True, "mood": "특별하게"},
+    {"name": "된장찌개", "category": "한식", "spicy": False, "soup": True, "mood": "든든하게"},
 
     # --- 중식 ---
     {"name": "짬뽕", "category": "중식", "spicy": True, "soup": True, "mood": "든든하게"},
@@ -17,7 +18,8 @@ foods = [
     {"name": "탕수육", "category": "중식", "spicy": False, "soup": False, "mood": "특별하게"},
 
     # --- 일식 ---
-    {"name": "라멘", "category": "일식", "spicy": False, "soup": True, "mood": "든든하게"},
+    {"name": "라멘", "category": "일식", "spicy": True, "soup": True, "mood": "든든하게"},
+    {"name": "덮밥", "category": "일식", "spicy": False, "soup": False, "mood": "든든하게"},
     {"name": "초밥", "category": "일식", "spicy": False, "soup": False, "mood": "가볍게"},
     {"name": "돈까스", "category": "일식", "spicy": False, "soup": False, "mood": "특별하게"},
     {"name": "가라아게 우동", "category": "일식", "spicy": False, "soup": True, "mood": "든든하게"},
