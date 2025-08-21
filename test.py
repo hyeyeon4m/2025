@@ -60,27 +60,40 @@ st.markdown(
 st.title("🍜 오늘 뭐 먹지? 맞춤 음식 추천기")
 
 # 질문들
-st.sidebar.header("⚡ 음식 선택 옵션")
+import streamlit as st
+
+st.header("⚡ 음식 선택 옵션")
 
 spicy_choice = st.radio(
     "매운 음식이 땡기나요?",
-    ["상관없음", "매운거 좋아요 🌶️", "순한게 좋아요 😌"],
-    index=0)
+    ["-- 선택 안 함 --", "매운거 좋아요 🌶️", "순한게 좋아요 😌"],
+    index=0
+)
 
 soup_choice = st.radio(
     "국물이 필요하신가요?",
-    ["상관없음", "국물 있는 게 좋아요 🍲", "국물 없는 게 좋아요 🍙"],
-    index=0)
+    ["-- 선택 안 함 --", "국물 있는 게 좋아요 🍲", "국물 없는 게 좋아요 🍙"],
+    index=0
+)
 
 mood_choice = st.radio(
     "오늘 기분은 어떤가요?",
-    ["상관없음", "가볍게", "든든하게", "특별하게"],
-    index=0)
+    ["-- 선택 안 함 --", "가볍게", "든든하게", "특별하게"],
+    index=0
+)
 
 category_choice = st.selectbox(
     "어떤 종류가 먹고 싶으신가요?",
-    ["상관없음", "한식", "중식", "일식", "양식", "분식"],
-    index=0)
+    ["-- 선택 안 함 --", "한식", "중식", "일식", "양식", "분식"],
+    index=0
+)
+
+st.write("🔍 현재 선택 상태:")
+st.write(f"매운맛: {spicy_choice}")
+st.write(f"국물 여부: {soup_choice}")
+st.write(f"기분: {mood_choice}")
+st.write(f"카테고리: {category_choice}")
+
 
 # 추천 버튼 + 애니메이션
 if st.button("추천 받기 🎲"):
