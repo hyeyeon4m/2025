@@ -4,8 +4,12 @@ import random
 # 음식 데이터
 foods = [
     {"name": "김치찌개", "category": "한식", "spicy": True, "soup": True, "mood": "든든하게"},
+    {"name": "콩국수", "category": "한식", "spicy": False, "soup": True, "mood": "특별하게"},
     {"name": "불고기", "category": "한식", "spicy": False, "soup": False, "mood": "특별하게"},
+    {"name": "국밥", "category": "한식", "spicy": False, "soup": True, "mood": "든하게"},
+    {"name": "육회", "category": "한식", "spicy": False, "soup": False, "mood": "가볍게"},
     {"name": "비빔밥", "category": "한식", "spicy": True, "soup": False, "mood": "가볍게"},
+    {"name": "김치볶음밥", "category": "한식", "spicy": False, "soup": False, "mood": "가볍게"},
     {"name": "갈비탕", "category": "한식", "spicy": False, "soup": True, "mood": "특별하게"},
     {"name": "된장찌개", "category": "한식", "spicy": False, "soup": True, "mood": "든든하게"},
     {"name": "짬뽕", "category": "중식", "spicy": True, "soup": True, "mood": "든든하게"},
@@ -17,6 +21,7 @@ foods = [
     {"name": "초밥", "category": "일식", "spicy": False, "soup": False, "mood": "가볍게"},
     {"name": "돈까스", "category": "일식", "spicy": False, "soup": False, "mood": "특별하게"},
     {"name": "가라아게 우동", "category": "일식", "spicy": False, "soup": True, "mood": "든든하게"},
+    {"name": "피자", "category": "양식", "spicy": False, "soup": False, "mood": "특별하게"},
     {"name": "토마토 스프", "category": "양식", "spicy": False, "soup": True, "mood": "가볍게"},
     {"name": "스테이크", "category": "양식", "spicy": False, "soup": False, "mood": "특별하게"},
     {"name": "파스타", "category": "양식", "spicy": False, "soup": False, "mood": "든든하게"},
@@ -24,8 +29,8 @@ foods = [
     {"name": "떡볶이", "category": "분식", "spicy": True, "soup": True, "mood": "가볍게"},
     {"name": "순대국밥", "category": "분식", "spicy": False, "soup": True, "mood": "든든하게"},
     {"name": "김밥", "category": "분식", "spicy": False, "soup": False, "mood": "가볍게"},
-    {"name": "치즈라볶이", "category": "분식", "spicy": True, "soup": True, "mood": "특별하게"},
-]
+    {"name": "라면", "category": "분식", "spicy": True, "soup": True, "mood": "가볍게"},
+    {"name": "치즈라볶이", "category": "분식", "spicy": True, "soup": True, "mood": "특별하게"}, ]
 
 st.set_page_config(page_title="음식 추천기", page_icon="🍜", layout="centered")
 
