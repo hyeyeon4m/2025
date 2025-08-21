@@ -34,8 +34,7 @@ foods = [
     {"name": "떡볶이", "category": "분식", "spicy": True, "soup": True, "mood": "가볍게"},
     {"name": "순대국밥", "category": "분식", "spicy": False, "soup": True, "mood": "든든하게"},
     {"name": "김밥", "category": "분식", "spicy": False, "soup": False, "mood": "가볍게"},
-    {"name": "치즈라볶이", "category": "분식", "spicy": True, "soup": True, "mood": "특별하게"},
-]
+    {"name": "치즈라볶이", "category": "분식", "spicy": True, "soup": True, "mood": "특별하게"}, ]
 
 st.set_page_config(page_title="음식 추천기", page_icon="🍜", layout="centered")
 
@@ -66,26 +65,22 @@ st.sidebar.header("⚡ 음식 선택 옵션")
 spicy_choice = st.sidebar.radio(
     "매운 음식이 땡기나요?",
     ["상관없음", "매운거 좋아요 🌶️", "순한게 좋아요 😌"],
-    index=0
-)
+    index=0)
 
-soup_choice = st.sidebar.radio(
+soup_choice = st.radio(
     "국물이 필요하신가요?",
     ["상관없음", "국물 있는 게 좋아요 🍲", "국물 없는 게 좋아요 🍙"],
-    index=0
-)
+    index=0)
 
-mood_choice = st.sidebar.radio(
+mood_choice = st.radio(
     "오늘 기분은 어떤가요?",
     ["상관없음", "가볍게", "든든하게", "특별하게"],
-    index=0
-)
+    index=0)
 
-category_choice = st.sidebar.selectbox(
+category_choice = st.selectbox(
     "어떤 종류가 먹고 싶으신가요?",
     ["상관없음", "한식", "중식", "일식", "양식", "분식"],
-    index=0
-)
+    index=0)
 
 # 추천 버튼 + 애니메이션
 if st.button("추천 받기 🎲"):
