@@ -62,37 +62,58 @@ st.title("🍜 오늘 뭐 먹지? 맞춤 음식 추천기")
 # 질문들
 import streamlit as st
 
+# CSS로 첫 번째 옵션 숨기기
+hide_first_option = """
+<style>
+div[role="radiogroup"] > label:first-child {
+    display: none !important;
+}
+div[data-baseweb="select"] li[data-option-index="0"] {
+    display: none !important;
+}
+</style>
+"""
+st.markdown(hide_first_option, unsafe_allow_html=True)
+
 st.header("⚡ 음식 선택 옵션")
 
 spicy_choice = st.radio(
     "매운 음식이 땡기나요?",
     ["-- 선택 안 함 --", "매운거 좋아요 🌶️", "순한게 좋아요 😌"],
-    index=0
+    index=0,
+    key="spicy"
 )
 
 soup_choice = st.radio(
     "국물이 필요하신가요?",
     ["-- 선택 안 함 --", "국물 있는 게 좋아요 🍲", "국물 없는 게 좋아요 🍙"],
-    index=0
+    index=0,
+    key="soup"
 )
 
 mood_choice = st.radio(
     "오늘 기분은 어떤가요?",
     ["-- 선택 안 함 --", "가볍게", "든든하게", "특별하게"],
-    index=0
+    index=0,
+    key="mood"
 )
 
 category_choice = st.selectbox(
     "어떤 종류가 먹고 싶으신가요?",
     ["-- 선택 안 함 --", "한식", "중식", "일식", "양식", "분식"],
-    index=0
+    index=0,
+    key="category"
 )
 
+# 선택 안 한 상태 처리
+def clean_choice(choice):
+    return None if choice.startswith("--") else choice
+
 st.write("🔍 현재 선택 상태:")
-st.write(f"매운맛: {spicy_choice}")
-st.write(f"국물 여부: {soup_choice}")
-st.write(f"기분: {mood_choice}")
-st.write(f"카테고리: {category_choice}")
+st.write(f"매운맛: {clean_choice(spicy_choice)}")
+st.write(f"국물 여부: {clean_choice(soup_choice)}")
+st.write(f"기분: {clean_choice(mood_choice)}")
+st.write(f"카테고리: {clean_choice(category_choice)}")
 
 
 # 추천 버튼 + 애니메이션
