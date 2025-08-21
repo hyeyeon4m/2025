@@ -59,10 +59,10 @@ st.markdown(
 
 st.title("🍜 오늘 뭐 먹지? 맞춤 음식 추천기")
 
-# ✨ 사이드바 (질문들)
+# 질문들
 st.sidebar.header("⚡ 음식 선택 옵션")
 
-spicy_choice = st.sidebar.radio(
+spicy_choice = st.radio(
     "매운 음식이 땡기나요?",
     ["상관없음", "매운거 좋아요 🌶️", "순한게 좋아요 😌"],
     index=0)
