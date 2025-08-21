@@ -105,16 +105,9 @@ category_choice = st.selectbox(
     key="category"
 )
 
-# 선택 안 한 상태 처리
+# 선택 안 한 상태 처리용 함수 (필요할 때 내부 로직에서만 사용)
 def clean_choice(choice):
     return None if choice.startswith("--") else choice
-
-st.write("🔍 현재 선택 상태:")
-st.write(f"매운맛: {clean_choice(spicy_choice)}")
-st.write(f"국물 여부: {clean_choice(soup_choice)}")
-st.write(f"기분: {clean_choice(mood_choice)}")
-st.write(f"카테고리: {clean_choice(category_choice)}")
-
 
 # 추천 버튼 + 애니메이션
 if st.button("추천 받기 🎲"):
