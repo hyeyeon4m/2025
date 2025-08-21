@@ -73,7 +73,7 @@ div[data-baseweb="select"] li[data-option-index="0"] {
 }
 </style>
 """
-st.markdown(hide_fi음", "한식", "중식", "일식", "양식", "분식"],
+st.markdown("상관없음", "한식", "중식", "일식", "양식", "분식"],
     index=0,
     key="category"
 )
